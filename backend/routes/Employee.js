@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const Employee = require("../models/Employees");
 
-
 router.get("/", async (req, res) => {
   try {
     const employees = await Employee.find();
@@ -53,7 +52,6 @@ router.put("/:id", async (req, res) => {
 
 router.delete("/:id", async (req, res) => {
   try {
-    console.log("ok");
     const employee = await Employee.findById(req.params.id);
     const name = employee.name;
     employee.delete();
